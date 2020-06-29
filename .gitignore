@@ -7,3 +7,9 @@ dist
 *.js
 *.map
 *.log
+.idea/*
+.pytest_cache/*
+dist/
+build/
+venv/*
+*.pyc
