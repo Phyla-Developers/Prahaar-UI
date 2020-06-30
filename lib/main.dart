@@ -1,21 +1,14 @@
-import 'package:PRAHAAR/pages/about.dart';
-import 'package:PRAHAAR/pages/all_apps.dart';
-import 'package:PRAHAAR/pages/disclaimer.dart';
-import 'package:PRAHAAR/pages/social.dart';
+import 'package:china_remove/pages/about.dart';
+import 'package:china_remove/pages/all_apps.dart';
+import 'package:china_remove/pages/disclaimer.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
 import 'package:intent/intent.dart' as android_intent;
 import 'package:intent/action.dart' as android_action;
 import 'package:gradient_app_bar/gradient_app_bar.dart';
-import 'package:animated_splash/animated_splash.dart';
 
 void main() => runApp(MaterialApp(
-      home: AnimatedSplash(
-        imagePath: 'assets/images/emblem_1.jpg',
-        home: ListAppsPages(),
-        duration: 2500,
-        type: AnimatedSplashType.StaticDuration,
-      ),
+      initialRoute: '/',
       routes: {
         '/': (context) => ListAppsPages(),
         '/about': (context) => AboutScreen(),
