@@ -211,7 +211,7 @@
         "index": 29
     },
     {
-        "name": "Mi Video Call \\u2013 Xiaomi",
+        "name": "Mi Video Call",
         "package": [
             "com.wMivideocallandchat_9258593"
         ],
@@ -232,7 +232,7 @@
         "index": 32
     },
     {
-        "name": "Viva Video \\u2013 QU Video Inc",
+        "name": "Viva Video",
         "package": [
             "com.quvideo.xiaoying"
         ],
@@ -310,7 +310,7 @@
         "index": 43
     },
     {
-        "name": "Clean Master \\u2013 Cheetah Mobile",
+        "name": "Clean Master",
         "package": [
             "com.cleanmaster.mguard"
         ],
