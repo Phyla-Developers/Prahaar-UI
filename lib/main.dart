@@ -8,8 +8,9 @@ import 'package:intent/action.dart' as android_action;
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 void main() => runApp(MaterialApp(
-      home: ListAppsPages(),
+      initialRoute: '/',
       routes: {
+        '/': (context) => ListAppsPages(),
         '/about': (context) => AboutScreen(),
         '/disclaimer': (context) => DisclaimerScreen(),
         '/all_apps': (context) => AllAppsScreen(),
@@ -24,30 +25,6 @@ class ListAppsPages extends StatefulWidget {
 class _ListAppsPagesState extends State<ListAppsPages> {
   bool _showSystemApps = false;
   bool _onlyLaunchableApps = false;
-
-  final makeBottom = Container(
-    height: 55.0,
-    child: BottomAppBar(
-      color: Color.fromRGBO(66, 66, 66, 1.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          IconButton(
-            icon: Icon(Icons.list, color: Colors.white),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.info, color: Colors.white),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.priority_high, color: Colors.white),
-            onPressed: () {},
-          )
-        ],
-      ),
-    ),
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +81,39 @@ class _ListAppsPagesState extends State<ListAppsPages> {
             ],
           ),
         ),
-        bottomNavigationBar: makeBottom);
+        bottomNavigationBar: makeBottomNav(context));
+  }
+
+  makeBottomNav(BuildContext context) {
+    return Container(
+      height: 55.0,
+      child: BottomAppBar(
+        color: Color.fromRGBO(66, 66, 66, 1.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.list, color: Colors.white),
+              onPressed: () {
+                Navigator.pushNamed(context, '/all_apps');
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.info, color: Colors.white),
+              onPressed: () {
+                Navigator.pushNamed(context, '/about');
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.priority_high, color: Colors.white),
+              onPressed: () {
+                Navigator.pushNamed(context, '/disclaimer');
+              },
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
 
