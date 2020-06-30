@@ -255,7 +255,7 @@
     {
         "name": "New Video Status",
         "package": [
-            "com.ai.bfly"
+            ""
         ],
         "index": 36
     },
@@ -392,5 +392,26 @@
             "com.kwai.global.video.social.kwaigo"
         ],
         "index": 55
+    },
+    {
+        "name": "Mobile Legends",
+        "package":[
+            "com.mobile.legends"
+        ],
+        "index":56
+    },
+    {
+        "name": "DU Privacy",
+        "package":[
+            "com.szipcs.duprivacylock"
+        ],
+        "index":57
+    },
+    {
+        "name": "V Fly Status Video",
+        "package":[
+            "com.ai.bfly"
+        ],
+        "index":58
     }
 ]
