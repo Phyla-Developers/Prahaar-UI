@@ -1,58 +1,396 @@
-{
-    "TikTok": ["com.zhiliaoapp.musically"],
-    "SHAREit": ["com.lenovo.anyshare.gps"],
-    "Kwai": ["com.kwai.video"],
-    "UC Browser": ["com.UCMobile.intl"],
-    "Baidu Map": ["com.baidu.BaiduMap"],
-    "Shein": ["com.zzkko"],
-    "Clash of Kings": ["com.hcg.cok.gp"],
-    "DU battery saver": ["com.DUsavebattery.faster.charge","com.DUsavebattery.faster.charge"],
-    "Helo": ["app.buzz.share"],
-    "Likee": ["video.like"],
-    "YouCam makeup": ["com.cyberlink.youcammakeup"],
-    "Mi Community": ["com.mi.global.bbs"],
-    "CM Browers": ["com.digitalnode.cmbrowser"],
-    "Virus Cleaner": ["phone.antivirus.virus.cleaner.junk.clean.speed.booster.master"],
-    "APUS Browser": ["com.apusapps.browser"],
-    "ROMWE": ["com.romwe"],
-    "Club Factory": ["club.fromfactory"],
-    "Newsdog": ["com.newsdog"],
-    "Beauty Plus": ["com.commsource.beautyplus"],
-    "WeChat": ["com.tencent.mm"],
-    "UC News": ["com.uc.iflow"],
-    "QQ Mail": ["com.tencent.androidqqmail"],
-    "Weibo": ["com.weico.international"],
-    "Xender": ["cn.xender"],
-    "QQ Music": ["com.tencent.qqmusic"],
-    "QQ Newsfeed": ["com.tencent.mtt.intl"],
-    "Bigo Live": ["sg.bigo.live"],
-    "SelfieCity": ["com.meitu.wheecam"],
-    "Mail Master": ["com.netease.mail"],
-    "Parallel Space": ["com.lbe.parallel.intl"],
-    "Mi Video Call – Xiaomi": ["com.wMivideocallandchat_9258593"],
-    "WeSync": ["com.jpro.wesync"],
-    "ES File Explorer": ["com.estrongs.android.pop"],
-    "Viva Video – QU Video Inc": ["com.quvideo.xiaoying"],
-    "Meitu": ["com.mt.mtxx.mtxx"],
-    "Vigo Video": ["com.ss.android.ugc.boom"],
-    "New Video Status": ["com.ai.bfly"],
-    "DU Recorder": ["mobi.charmer.myscreenrecorder"],
-    "Vault- Hide": ["com.netqin.ps"],
-    "Cache Cleaner DU App studio": ["com.limsky.speedbooster"],
-    "DU Cleaner": ["com.DU.Cleaner.antivirus.cleanbooster","com.duapps.cleaner"],
-    "DU Browser": ["com.baidu.browser.inter"],
-    "Hago Play With New Friends": ["com.yy.hiyo"],
-    "Cam Scanner": ["com.intsig.camscanner"],
-    "Clean Master – Cheetah Mobile": ["com.cleanmaster.mguard"],
-    "Wonder Camera": ["com.baidu.baiducamera"],
-    "Photo Wonder": ["com.yubitu.android.YubiCollage"],
-    "QQ Player": ["com.playhdvideo.myvideoq"],
-    "We Meet": ["com.videochat.livechat.wemeet"],
-    "Sweet Selfie": ["com.cam001.selfie"],
-    "Baidu Translate": ["cm.aptoide.pt"],
-    "Vmate": ["com.uc.vmate"],
-    "QQ International": ["com.tencent.mobileqqi"],
-    "QQ Security Center": ["com.tencent.token"],
-    "QQ Launcher": ["com.tencent.qqlauncher"],
-    "U Video": ["com.kwai.global.video.social.kwaigo"]
-}
+[
+    {
+        "name": "TikTok",
+        "package": [
+            "com.zhiliaoapp.musically"
+        ],
+        "index": 0
+    },
+    {
+        "name": "SHAREit",
+        "package": [
+            "com.lenovo.anyshare.gps"
+        ],
+        "index": 1
+    },
+    {
+        "name": "Kwai",
+        "package": [
+            "com.kwai.video"
+        ],
+        "index": 2
+    },
+    {
+        "name": "UC Browser",
+        "package": [
+            "com.UCMobile.intl"
+        ],
+        "index": 3
+    },
+    {
+        "name": "Baidu Map",
+        "package": [
+            "com.baidu.BaiduMap"
+        ],
+        "index": 4
+    },
+    {
+        "name": "Shein",
+        "package": [
+            "com.zzkko"
+        ],
+        "index": 5
+    },
+    {
+        "name": "Clash of Kings",
+        "package": [
+            "com.hcg.cok.gp"
+        ],
+        "index": 6
+    },
+    {
+        "name": "DU battery saver",
+        "package": [
+            "com.DUsavebattery.faster.charge",
+            "com.dianxinos.dxbs"
+        ],
+        "index": 7
+    },
+    {
+        "name": "Helo",
+        "package": [
+            "app.buzz.share"
+        ],
+        "index": 8
+    },
+    {
+        "name": "Likee",
+        "package": [
+            "video.like"
+        ],
+        "index": 9
+    },
+    {
+        "name": "YouCam makeup",
+        "package": [
+            "com.cyberlink.youcammakeup"
+        ],
+        "index": 10
+    },
+    {
+        "name": "Mi Community",
+        "package": [
+            "com.mi.global.bbs"
+        ],
+        "index": 11
+    },
+    {
+        "name": "CM Browers",
+        "package": [
+            "com.digitalnode.cmbrowser"
+        ],
+        "index": 12
+    },
+    {
+        "name": "Virus Cleaner",
+        "package": [
+            "phone.antivirus.virus.cleaner.junk.clean.speed.booster.master"
+        ],
+        "index": 13
+    },
+    {
+        "name": "APUS Browser",
+        "package": [
+            "com.apusapps.browser"
+        ],
+        "index": 14
+    },
+    {
+        "name": "ROMWE",
+        "package": [
+            "com.romwe"
+        ],
+        "index": 15
+    },
+    {
+        "name": "Club Factory",
+        "package": [
+            "club.fromfactory"
+        ],
+        "index": 16
+    },
+    {
+        "name": "Newsdog",
+        "package": [
+            "com.newsdog"
+        ],
+        "index": 17
+    },
+    {
+        "name": "Beauty Plus",
+        "package": [
+            "com.commsource.beautyplus"
+        ],
+        "index": 18
+    },
+    {
+        "name": "WeChat",
+        "package": [
+            "com.tencent.mm"
+        ],
+        "index": 19
+    },
+    {
+        "name": "UC News",
+        "package": [
+            "com.uc.iflow"
+        ],
+        "index": 20
+    },
+    {
+        "name": "QQ Mail",
+        "package": [
+            "com.tencent.androidqqmail"
+        ],
+        "index": 21
+    },
+    {
+        "name": "Weibo",
+        "package": [
+            "com.weico.international"
+        ],
+        "index": 22
+    },
+    {
+        "name": "Xender",
+        "package": [
+            "cn.xender"
+        ],
+        "index": 23
+    },
+    {
+        "name": "QQ Music",
+        "package": [
+            "com.tencent.qqmusic"
+        ],
+        "index": 24
+    },
+    {
+        "name": "QQ Newsfeed",
+        "package": [
+            "com.tencent.mtt.intl"
+        ],
+        "index": 25
+    },
+    {
+        "name": "Bigo Live",
+        "package": [
+            "sg.bigo.live"
+        ],
+        "index": 26
+    },
+    {
+        "name": "SelfieCity",
+        "package": [
+            "com.meitu.wheecam"
+        ],
+        "index": 27
+    },
+    {
+        "name": "Mail Master",
+        "package": [
+            "com.netease.mail"
+        ],
+        "index": 28
+    },
+    {
+        "name": "Parallel Space",
+        "package": [
+            "com.lbe.parallel.intl"
+        ],
+        "index": 29
+    },
+    {
+        "name": "Mi Video Call \\u2013 Xiaomi",
+        "package": [
+            "com.wMivideocallandchat_9258593"
+        ],
+        "index": 30
+    },
+    {
+        "name": "WeSync",
+        "package": [
+            "com.jpro.wesync"
+        ],
+        "index": 31
+    },
+    {
+        "name": "ES File Explorer",
+        "package": [
+            "com.estrongs.android.pop"
+        ],
+        "index": 32
+    },
+    {
+        "name": "Viva Video \\u2013 QU Video Inc",
+        "package": [
+            "com.quvideo.xiaoying"
+        ],
+        "index": 33
+    },
+    {
+        "name": "Meitu",
+        "package": [
+            "com.mt.mtxx.mtxx"
+        ],
+        "index": 34
+    },
+    {
+        "name": "Vigo Video",
+        "package": [
+            "com.ss.android.ugc.boom"
+        ],
+        "index": 35
+    },
+    {
+        "name": "New Video Status",
+        "package": [
+            "com.ai.bfly"
+        ],
+        "index": 36
+    },
+    {
+        "name": "DU Recorder",
+        "package": [
+            "mobi.charmer.myscreenrecorder"
+        ],
+        "index": 37
+    },
+    {
+        "name": "Vault- Hide",
+        "package": [
+            "com.netqin.ps"
+        ],
+        "index": 38
+    },
+    {
+        "name": "Cache Cleaner DU App studio",
+        "package": [
+            "com.limsky.speedbooster"
+        ],
+        "index": 39
+    },
+    {
+        "name": "DU Cleaner",
+        "package": [
+            "com.DU.Cleaner.antivirus.cleanbooster",
+            "com.duapps.cleaner"
+        ],
+        "index": 40
+    },
+    {
+        "name": "DU Browser",
+        "package": [
+            "com.baidu.browser.inter"
+        ],
+        "index": 41
+    },
+    {
+        "name": "Hago Play With New Friends",
+        "package": [
+            "com.yy.hiyo"
+        ],
+        "index": 42
+    },
+    {
+        "name": "Cam Scanner",
+        "package": [
+            "com.intsig.camscanner"
+        ],
+        "index": 43
+    },
+    {
+        "name": "Clean Master \\u2013 Cheetah Mobile",
+        "package": [
+            "com.cleanmaster.mguard"
+        ],
+        "index": 44
+    },
+    {
+        "name": "Wonder Camera",
+        "package": [
+            "com.baidu.baiducamera"
+        ],
+        "index": 45
+    },
+    {
+        "name": "Photo Wonder",
+        "package": [
+            "com.yubitu.android.YubiCollage"
+        ],
+        "index": 46
+    },
+    {
+        "name": "QQ Player",
+        "package": [
+            "com.playhdvideo.myvideoq"
+        ],
+        "index": 47
+    },
+    {
+        "name": "We Meet",
+        "package": [
+            "com.videochat.livechat.wemeet"
+        ],
+        "index": 48
+    },
+    {
+        "name": "Sweet Selfie",
+        "package": [
+            "com.cam001.selfie"
+        ],
+        "index": 49
+    },
+    {
+        "name": "Baidu Translate",
+        "package": [
+            "cm.aptoide.pt"
+        ],
+        "index": 50
+    },
+    {
+        "name": "Vmate",
+        "package": [
+            "com.uc.vmate"
+        ],
+        "index": 51
+    },
+    {
+        "name": "QQ International",
+        "package": [
+            "com.tencent.mobileqqi"
+        ],
+        "index": 52
+    },
+    {
+        "name": "QQ Security Center",
+        "package": [
+            "com.tencent.token"
+        ],
+        "index": 53
+    },
+    {
+        "name": "QQ Launcher",
+        "package": [
+            "com.tencent.qqlauncher"
+        ],
+        "index": 54
+    },
+    {
+        "name": "U Video",
+        "package": [
+            "com.kwai.global.video.social.kwaigo"
+        ],
+        "index": 55
+    }
+]
