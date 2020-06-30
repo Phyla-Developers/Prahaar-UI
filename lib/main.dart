@@ -17,27 +17,47 @@ class _ListAppsPagesState extends State<ListAppsPages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Installed applications"),
-        actions: <Widget>[
-          InkWell(
-            child: Container(
-              child: Icon(Icons.replay, size: 30.0),
-              padding: EdgeInsets.symmetric(horizontal: 20),
-            ),
-            onTap: () => {
-              setState(() {
-                _showSystemApps = !_showSystemApps;
-              })
-            },
-          )
-        ],
-      ),
-      body: _ListAppsPagesContent(
-          includeSystemApps: _showSystemApps,
-          onlyAppsWithLaunchIntent: _onlyLaunchableApps,
-          key: GlobalKey()),
-    );
+        appBar: AppBar(
+          title: Text("Installed applications"),
+          actions: <Widget>[
+            InkWell(
+              child: Container(
+                child: Icon(Icons.replay, size: 30.0),
+                padding: EdgeInsets.symmetric(horizontal: 20),
+              ),
+              onTap: () => {
+                setState(() {
+                  _showSystemApps = !_showSystemApps;
+                })
+              },
+            )
+          ],
+        ),
+        body: Container(
+          child: Column(
+            children: <Widget>[
+              Container(
+                  width: double.infinity,
+                  height: 300,
+                  child: Center(
+                      child: Image.asset("assets/images/android_logo.png")),
+                  decoration: BoxDecoration(color: Colors.blue, boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 5.0, // soften the shadow
+                      spreadRadius: 5.0, //extend the shadow
+                    )
+                  ])),
+              Expanded(
+                  child: SizedBox(
+                      height: 200.0,
+                      child: _ListAppsPagesContent(
+                          includeSystemApps: _showSystemApps,
+                          onlyAppsWithLaunchIntent: _onlyLaunchableApps,
+                          key: GlobalKey())))
+            ],
+          ),
+        ));
   }
 }
 
@@ -127,7 +147,10 @@ class _ListAppsPagesContent extends StatelessWidget {
         future: DeviceApps.getInstalledApplications(includeAppIcons: true),
         builder: (context, data) {
           if (data.data == null) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+                child: Padding(
+                    child: LinearProgressIndicator(),
+                    padding: EdgeInsets.symmetric(horizontal: 40)));
           } else {
             List<Application> apps = data.data;
             List<Application> restrictApps = [];
