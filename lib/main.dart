@@ -20,28 +20,15 @@ class _ListAppsPagesState extends State<ListAppsPages> {
       appBar: AppBar(
         title: Text("Installed applications"),
         actions: <Widget>[
-          PopupMenuButton(
-            itemBuilder: (context) {
-              return <PopupMenuItem<String>>[
-                PopupMenuItem<String>(
-                    value: 'system_apps', child: Text('Toggle system apps')),
-                PopupMenuItem<String>(
-                  value: "launchable_apps",
-                  child: Text('Toggle launchable apps only'),
-                )
-              ];
-            },
-            onSelected: (key) {
-              if (key == "system_apps") {
-                setState(() {
-                  _showSystemApps = !_showSystemApps;
-                });
-              }
-              if (key == "launchable_apps") {
-                setState(() {
-                  _onlyLaunchableApps = !_onlyLaunchableApps;
-                });
-              }
+          InkWell(
+            child: Container(
+              child: Icon(Icons.replay, size: 30.0),
+              padding: EdgeInsets.symmetric(horizontal: 20),
+            ),
+            onTap: () => {
+              setState(() {
+                _showSystemApps = !_showSystemApps;
+              })
             },
           )
         ],
