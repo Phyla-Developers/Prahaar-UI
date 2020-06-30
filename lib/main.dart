@@ -70,8 +70,6 @@ class _ListAppsPagesContent extends StatelessWidget {
       ..setData(Uri.parse("package:$appId"))
       ..startActivityForResult().then((data) {
         print(data);
-      }, onError: (e) {
-        print(e);
       });
   }
 
@@ -158,16 +156,16 @@ class _ListAppsPagesContent extends StatelessWidget {
                   return Column(
                     children: <Widget>[
                       Container(
-                        color: bannedApps.contains(app.packageName)
-                            ? Colors.red
-                            : Colors.green,
                         child: ListTile(
-                          leading: app is ApplicationWithIcon
-                              ? CircleAvatar(
-                                  backgroundImage: MemoryImage(app.icon),
-                                  backgroundColor: Colors.white,
-                                )
-                              : null,
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 20.0),
+                          leading: Container(
+                              child: app is ApplicationWithIcon
+                                  ? CircleAvatar(
+                                      backgroundImage: MemoryImage(app.icon),
+                                      backgroundColor: Colors.white,
+                                    )
+                                  : null),
                           title: Text("${app.appName}"),
                           subtitle: Text('Version: ${app.versionName}\n'
                               'Package: ${app.packageName}'),
@@ -175,6 +173,13 @@ class _ListAppsPagesContent extends StatelessWidget {
                             uninstallApp(app.packageName)
                                 .then(setState(() => null))
                           },
+                          trailing: InkWell(
+                            child: Container(
+                              child: Icon(Icons.delete_forever,
+                                  color: Colors.black, size: 30.0),
+                            ),
+                            onTap: () => {uninstallApp(app.packageName)},
+                          ),
                         ),
                       ),
                       Divider(
