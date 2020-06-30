@@ -1,5 +1,7 @@
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
+import 'package:intent/intent.dart' as android_intent;
+import 'package:intent/action.dart' as android_action;
 
 void main() => runApp(MaterialApp(home: ListAppsPages()));
 
@@ -61,6 +63,17 @@ class _ListAppsPagesContent extends StatelessWidget {
       this.includeSystemApps: false,
       this.onlyAppsWithLaunchIntent: false})
       : super(key: key);
+
+  uninstallApp(appId) async {
+    android_intent.Intent()
+      ..setAction(android_action.Action.ACTION_DELETE)
+      ..setData(Uri.parse("package:$appId"))
+      ..startActivityForResult().then((data) {
+        print(data);
+      }, onError: (e) {
+        print(e);
+      });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -133,11 +146,11 @@ class _ListAppsPagesContent extends StatelessWidget {
           } else {
             List<Application> apps = data.data;
             List<Application> restrictApps = [];
-            for(var i=0;i<apps.length;i++){
-              if(bannedApps.contains(apps[i].packageName)){
+            for (var i = 0; i < apps.length; i++) {
+              if (bannedApps.contains(apps[i].packageName)) {
                 restrictApps.add(apps[i]);
               }
-            } 
+            }
             apps = restrictApps;
             return ListView.builder(
                 itemBuilder: (context, position) {
@@ -158,6 +171,10 @@ class _ListAppsPagesContent extends StatelessWidget {
                           title: Text("${app.appName}"),
                           subtitle: Text('Version: ${app.versionName}\n'
                               'Package: ${app.packageName}'),
+                          onLongPress: () => {
+                            uninstallApp(app.packageName)
+                                .then(setState(() => null))
+                          },
                         ),
                       ),
                       Divider(
@@ -170,4 +187,6 @@ class _ListAppsPagesContent extends StatelessWidget {
           }
         });
   }
+
+  setState(Null Function() param0) {}
 }
