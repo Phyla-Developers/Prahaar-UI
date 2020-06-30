@@ -1,9 +1,20 @@
+import 'package:china_remove/pages/about.dart';
+import 'package:china_remove/pages/all_apps.dart';
+import 'package:china_remove/pages/disclaimer.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
 import 'package:intent/intent.dart' as android_intent;
 import 'package:intent/action.dart' as android_action;
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 
-void main() => runApp(MaterialApp(home: ListAppsPages()));
+void main() => runApp(MaterialApp(
+      home: ListAppsPages(),
+      routes: {
+        '/about': (context) => AboutScreen(),
+        '/disclaimer': (context) => DisclaimerScreen(),
+        '/all_apps': (context) => AllAppsScreen(),
+      },
+    ));
 
 class ListAppsPages extends StatefulWidget {
   @override
@@ -14,11 +25,37 @@ class _ListAppsPagesState extends State<ListAppsPages> {
   bool _showSystemApps = false;
   bool _onlyLaunchableApps = false;
 
+  final makeBottom = Container(
+    height: 55.0,
+    child: BottomAppBar(
+      color: Color.fromRGBO(66, 66, 66, 1.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          IconButton(
+            icon: Icon(Icons.list, color: Colors.white),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(Icons.info, color: Colors.white),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(Icons.priority_high, color: Colors.white),
+            onPressed: () {},
+          )
+        ],
+      ),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Installed applications"),
+        appBar: GradientAppBar(
+          title: Text('Flutter'),
+          backgroundColorStart: Colors.black,
+          backgroundColorEnd: Color.fromRGBO(66, 66, 66, 1),
           actions: <Widget>[
             InkWell(
               child: Container(
@@ -40,14 +77,23 @@ class _ListAppsPagesState extends State<ListAppsPages> {
                   width: double.infinity,
                   height: 300,
                   child: Center(
-                      child: Image.asset("assets/images/android_logo.png")),
-                  decoration: BoxDecoration(color: Colors.blue, boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 5.0, // soften the shadow
-                      spreadRadius: 5.0, //extend the shadow
-                    )
-                  ])),
+                      child: Image.asset("assets/images/splash_transparent.png",
+                          color: Color.fromRGBO(255, 255, 255, 0.7))),
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          colors: [
+                            Color.fromRGBO(66, 66, 66, 1),
+                            Colors.black
+                          ]),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 5.0, // soften the shadow
+                          spreadRadius: 3.0, //extend the shadow
+                        )
+                      ])),
               Expanded(
                   child: SizedBox(
                       height: 200.0,
@@ -57,7 +103,8 @@ class _ListAppsPagesState extends State<ListAppsPages> {
                           key: GlobalKey())))
             ],
           ),
-        ));
+        ),
+        bottomNavigationBar: makeBottom);
   }
 }
 
@@ -186,7 +233,7 @@ class _ListAppsPagesContent extends StatelessWidget {
                           trailing: InkWell(
                             child: Container(
                               child: Icon(Icons.delete_forever,
-                                  color: Colors.black, size: 30.0),
+                                  color: Colors.grey, size: 30.0),
                             ),
                             onTap: () => {uninstallApp(app.packageName)},
                           ),
