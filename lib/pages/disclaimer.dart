@@ -11,12 +11,7 @@ class DisclaimerScreen extends StatelessWidget {
         backgroundColorEnd: Color.fromRGBO(66, 66, 66, 1),
       ),
       body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            // Navigate back to first screen when tapped.
-          },
-          child: Text('Go back!'),
-        ),
+        child: Text('Please please'),
       ),
     );
   }
