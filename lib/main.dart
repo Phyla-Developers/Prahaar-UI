@@ -86,30 +86,48 @@ class _ListAppsPagesState extends State<ListAppsPages> {
 
   makeBottomNav(BuildContext context) {
     return Container(
-      height: 55.0,
+      height: 68.0,
       child: BottomAppBar(
-        color: Color.fromRGBO(66, 66, 66, 1.0),
+        color: Color.fromRGBO(21, 21, 21, 0.95),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.list, color: Colors.white),
-              onPressed: () {
-                Navigator.pushNamed(context, '/all_apps');
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.info, color: Colors.white),
-              onPressed: () {
-                Navigator.pushNamed(context, '/about');
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.priority_high, color: Colors.white),
-              onPressed: () {
-                Navigator.pushNamed(context, '/disclaimer');
-              },
-            )
+            Column(children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.info, color: Colors.white),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/about');
+                },
+              ),
+              Container(
+                  padding: EdgeInsets.only(bottom: 5),
+                  child: Text("About Us",
+                      style: TextStyle(color: Colors.white, fontSize: 11)))
+            ]),
+            Column(children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.list, color: Colors.white),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/all_apps');
+                },
+              ),
+              Container(
+                  padding: EdgeInsets.only(bottom: 5),
+                  child: Text("All Apps",
+                      style: TextStyle(color: Colors.white, fontSize: 11)))
+            ]),
+            Column(children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.priority_high, color: Colors.white),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/disclaimer');
+                },
+              ),
+              Container(
+                  padding: EdgeInsets.only(bottom: 5),
+                  child: Text("Disclaimer",
+                      style: TextStyle(color: Colors.white, fontSize: 11)))
+            ])
           ],
         ),
       ),
@@ -235,10 +253,7 @@ class _ListAppsPagesContent extends StatelessWidget {
                           title: Text("${app.appName}"),
                           subtitle: Text('Version: ${app.versionName}\n'
                               'Package: ${app.packageName}'),
-                          onLongPress: () => {
-                            uninstallApp(app.packageName)
-                                .then(setState(() => null))
-                          },
+                          onLongPress: () => {uninstallApp(app.packageName)},
                           trailing: InkWell(
                             child: Container(
                               child: Icon(Icons.delete_forever,
@@ -258,6 +273,4 @@ class _ListAppsPagesContent extends StatelessWidget {
           }
         });
   }
-
-  setState(Null Function() param0) {}
 }

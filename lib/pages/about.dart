@@ -6,17 +6,12 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: GradientAppBar(
-        title: Text('About'),
+        title: Text('About Us'),
         backgroundColorStart: Colors.black,
         backgroundColorEnd: Color.fromRGBO(66, 66, 66, 1),
       ),
       body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            // Navigate back to first screen when tapped.
-          },
-          child: Text('Go back!'),
-        ),
+        child: Text('Bade log'),
       ),
     );
   }
