@@ -1,19 +1,27 @@
-import 'package:china_remove/pages/about.dart';
-import 'package:china_remove/pages/all_apps.dart';
-import 'package:china_remove/pages/disclaimer.dart';
+import 'package:PRAHAAR/pages/about.dart';
+import 'package:PRAHAAR/pages/all_apps.dart';
+import 'package:PRAHAAR/pages/disclaimer.dart';
+import 'package:PRAHAAR/pages/social.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
 import 'package:intent/intent.dart' as android_intent;
 import 'package:intent/action.dart' as android_action;
 import 'package:gradient_app_bar/gradient_app_bar.dart';
+import 'package:animated_splash/animated_splash.dart';
 
 void main() => runApp(MaterialApp(
-      initialRoute: '/',
+      home: AnimatedSplash(
+        imagePath: 'assets/images/emblem_1.jpg',
+        home: ListAppsPages(),
+        duration: 2500,
+        type: AnimatedSplashType.StaticDuration,
+      ),
       routes: {
         '/': (context) => ListAppsPages(),
         '/about': (context) => AboutScreen(),
         '/disclaimer': (context) => DisclaimerScreen(),
         '/all_apps': (context) => AllAppsScreen(),
+        '/share': (context) => SocialScreen()
       },
     ));
 
@@ -30,7 +38,7 @@ class _ListAppsPagesState extends State<ListAppsPages> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: GradientAppBar(
-          title: Text('Flutter'),
+          title: Text('Prahar'),
           backgroundColorStart: Colors.black,
           backgroundColorEnd: Color.fromRGBO(66, 66, 66, 1),
           actions: <Widget>[
@@ -54,8 +62,8 @@ class _ListAppsPagesState extends State<ListAppsPages> {
                   width: double.infinity,
                   height: 300,
                   child: Center(
-                      child: Image.asset("assets/images/splash_transparent.png",
-                          color: Color.fromRGBO(255, 255, 255, 0.7))),
+                      child: Image.asset("assets/images/emblem_2.jpeg",
+                          color: Color.fromRGBO(255, 255, 255, 1), scale: 0.1)),
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                           begin: Alignment.topRight,
@@ -113,7 +121,7 @@ class _ListAppsPagesState extends State<ListAppsPages> {
               ),
               Container(
                   padding: EdgeInsets.only(bottom: 5),
-                  child: Text("All Apps",
+                  child: Text("Banned Apps",
                       style: TextStyle(color: Colors.white, fontSize: 11)))
             ]),
             Column(children: <Widget>[
@@ -126,6 +134,18 @@ class _ListAppsPagesState extends State<ListAppsPages> {
               Container(
                   padding: EdgeInsets.only(bottom: 5),
                   child: Text("Disclaimer",
+                      style: TextStyle(color: Colors.white, fontSize: 11)))
+            ]),
+            Column(children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.share, color: Colors.white),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/share');
+                },
+              ),
+              Container(
+                  padding: EdgeInsets.only(bottom: 5),
+                  child: Text("Share",
                       style: TextStyle(color: Colors.white, fontSize: 11)))
             ])
           ],
@@ -242,7 +262,7 @@ class _ListAppsPagesContent extends StatelessWidget {
                       Container(
                         child: ListTile(
                           contentPadding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 20.0),
+                              horizontal: 20.0, vertical: 18.0),
                           leading: Container(
                               child: app is ApplicationWithIcon
                                   ? CircleAvatar(
@@ -251,13 +271,12 @@ class _ListAppsPagesContent extends StatelessWidget {
                                     )
                                   : null),
                           title: Text("${app.appName}"),
-                          subtitle: Text('Version: ${app.versionName}\n'
-                              'Package: ${app.packageName}'),
+                          subtitle: Text('Version: ${app.versionName}\n'),
                           onLongPress: () => {uninstallApp(app.packageName)},
                           trailing: InkWell(
                             child: Container(
-                              child: Icon(Icons.delete_forever,
-                                  color: Colors.grey, size: 30.0),
+                              child: Icon(Icons.delete_outline,
+                                  color: Colors.grey),
                             ),
                             onTap: () => {uninstallApp(app.packageName)},
                           ),
