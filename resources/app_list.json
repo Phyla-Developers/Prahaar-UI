@@ -255,7 +255,7 @@
     {
         "name": "New Video Status",
         "package": [
-            ""
+            "com.unknown.com"
         ],
         "index": 36
     },
