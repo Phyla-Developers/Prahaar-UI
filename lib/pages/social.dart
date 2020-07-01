@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
+import 'package:http/http.dart' as http;
 
 class SocialScreen extends StatelessWidget {
   // This widget is the root of your application.
@@ -17,15 +18,25 @@ class SocialScreen extends StatelessWidget {
         ),
         body: Example01(),
         bottomNavigationBar: Container(
-          height: 150,
-          child: Text("Share our ❤ for India"),
+          padding: EdgeInsets.symmetric(vertical: 30),
+          height: 100,
+          child: Text(
+            "Share our love for India",
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Bebas',
+              fontWeight: FontWeight.w700,
+              fontSize: 30,
+            ),
+            textAlign: TextAlign.center,
+          ),
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
                 color: Colors.black,
               )
             ],
-            color: Colors.white,
+            color: Colors.black,
           ),
         ));
   }
@@ -61,8 +72,7 @@ class Example01 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.white), color: Colors.black),
+      decoration: BoxDecoration(color: Colors.black),
       child: new StaggeredGridView.count(
         crossAxisCount: 4,
         staggeredTiles: _staggeredTiles,
@@ -100,9 +110,12 @@ class _Example01Tile extends StatelessWidget {
 Future<void> _shareImage(String path) async {
   try {
     final ByteData bytes = await rootBundle.load(path);
+    final response = await http.get(
+        'https://raw.githubusercontent.com/Phyla-Developers/Prahaar/master/project_link');
+    final appLink = response.body;
     await Share.file(
         'esys image', 'esys.png', bytes.buffer.asUint8List(), 'image/jpeg',
-        text: '59 Ways To Become Aatmanirbhar #Prahar');
+        text: '59 Ways To Become Aatmanirbhar #Prahar\nDownload from $appLink');
   } catch (e) {
     print('error: $e');
   }

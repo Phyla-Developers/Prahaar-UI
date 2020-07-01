@@ -7,11 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:intent/intent.dart' as android_intent;
 import 'package:intent/action.dart' as android_action;
 import 'package:gradient_app_bar/gradient_app_bar.dart';
+import 'package:prahaar/pages/splash.dart';
 
 void main() => runApp(MaterialApp(
-      initialRoute: '/',
+      home: SplashScreen(),
       routes: {
-        '/': (context) => ListAppsPages(),
         '/about': (context) => AboutScreen(),
         '/disclaimer': (context) => DisclaimerScreen(),
         '/all_apps': (context) => AllAppsScreen(),

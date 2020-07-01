@@ -30,7 +30,8 @@ dependencies:
   esys_flutter_share: ^1.0.2
   share:
   flutter_staggered_grid_view:
-
+  flutter_linkify: ^3.1.3
+  url_launcher: ^5.4.11
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -70,7 +71,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: Bebas
+      fonts:
+        - asset: fonts/bebas___.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
