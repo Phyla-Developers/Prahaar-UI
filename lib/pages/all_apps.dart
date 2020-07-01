@@ -1,39 +1,3 @@
-// import 'dart:js';
-
-// import 'package:flutter/material.dart';
-// import 'dart:convert';
-// import 'package:gradient_app_bar/gradient_app_bar.dart';
-
-// class AllAppsScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: GradientAppBar(
-//         title: Text('Flutter'),
-//         backgroundColorStart: Colors.black,
-//         backgroundColorEnd: Color.fromRGBO(66, 66, 66, 1),
-//       ),
-//       body: ListView.builder(itemBuilder: null)
-//     );
-//   }
-
-//   listGenerator(context) async {
-//     var listOfApps = [];
-//     String data = await DefaultAssetBundle.of(context)
-//         .loadString("resources/app_list.json");
-//     final jsonResult = json.decode(data);
-//     for (var i = 0; i < jsonResult.length; i++) {
-//       var currentApp = jsonResult[i];
-//       var listTile = ListTile(
-//           leading: Image.asset(
-//               "resources/images/" + currentApp['package'][0] + ".png"),
-//           title: Text(currentApp["name"]),
-//           subtitle: Text(currentApp["package"].join(",")));
-//       listOfApps.add(listTile);
-//     }
-//     return listOfApps;
-//   }
-// }
 import 'dart:async';
 import 'dart:convert';
 
@@ -83,10 +47,12 @@ class AllAppsState extends State<AllAppsScreen> {
           return Column(
             children: <Widget>[
               ListTile(
-                  leading: Image.asset(
-                      "resources/images/" + data[index]['package'][0] + ".png"),
-                  title: Text(data[index]["name"]),
-                  subtitle: Text(data[index]["package"].join(","))),
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                leading: Image.asset(
+                    "resources/images/" + data[index]['package'][0] + ".png"),
+                title: Text(data[index]["name"]),
+              ),
               Divider(height: 1.0),
             ],
           );

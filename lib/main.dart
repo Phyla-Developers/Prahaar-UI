@@ -32,7 +32,7 @@ class _ListAppsPagesState extends State<ListAppsPages> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: GradientAppBar(
-          title: Text('Prahar'),
+          title: Text('Prahaar'),
           backgroundColorStart: Colors.black,
           backgroundColorEnd: Color.fromRGBO(66, 66, 66, 1),
           actions: <Widget>[
