@@ -21,12 +21,13 @@ class SocialScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 30),
           height: 100,
           child: Text(
-            "Share our love for India",
+            "Share your love for India",
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'Bebas',
               fontWeight: FontWeight.w700,
               fontSize: 30,
+              wordSpacing: 7,
             ),
             textAlign: TextAlign.center,
           ),
@@ -115,7 +116,8 @@ Future<void> _shareImage(String path) async {
     final appLink = response.body;
     await Share.file(
         'esys image', 'esys.png', bytes.buffer.asUint8List(), 'image/jpeg',
-        text: '59 Ways To Become Aatmanirbhar #Prahar\nDownload from $appLink');
+        text:
+            '59 Ways To Become Aatmanirbhar #Prahaar\nDownload from $appLink');
   } catch (e) {
     print('error: $e');
   }
